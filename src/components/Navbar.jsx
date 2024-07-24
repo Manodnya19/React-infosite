@@ -1,13 +1,30 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import ReactDOM from 'react-dom/client';
 import '../App.css'
 
-export default function Navbar(){
-    return(
-        <div className='navBar'>
-            <img className='nav--icon' src="/src/assets/react.svg" alt="" />
-            <h3 className='nav--logo_text'>React Facts</h3>
-            <h4 className='nav--title'>React Course - Project 1</h4>
-        </div>
-    )
+export default function Navbar(props){
+    return (
+        <nav 
+           className={props.darkMode ? "dark": ""}
+       >
+           <img 
+               className="nav--logo_icon"
+               src="src/assets/react.svg"
+           />
+           <h3 className="nav--logo_text">ReactFacts</h3>
+           
+           <div 
+               className="toggler" 
+           >
+               <p className="toggler--light">Light</p>
+               <div 
+                   className="toggler--slider"
+                   onClick={props.toggleDarkMode}
+               >
+                   <div className="toggler--slider--circle"></div>
+               </div>
+               <p className="toggler--dark">Dark</p>
+           </div>
+       </nav>
+   )
 }
